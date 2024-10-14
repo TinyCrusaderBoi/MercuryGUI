@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MercuryGUI
@@ -16,7 +13,13 @@ namespace MercuryGUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            // Instantiate the updater and check for updates
+            MultiRepoUpdater updater = new MultiRepoUpdater();
+            updater.CheckAndUpdateRepos();
+
+            // Run your main form
+            Application.Run(new Form1()); // Ensure Form1 is your main form class
         }
     }
 }
